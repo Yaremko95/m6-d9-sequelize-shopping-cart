@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     { timestamps: false }
   );
-  Cart.associate = (models) => {};
+  Cart.associate = (models) => {
+    Cart.belongsTo(models.User);
+    Cart.belongsTo(models.Product);
+  };
   return Cart;
 };
