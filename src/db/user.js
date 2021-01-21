@@ -18,5 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+  User.associate = (models) => {
+    User.belongsToMany(models.Product, {
+      through: { model: models.Cart, unique: false },
+    });
+  };
   return User;
 };

@@ -16,5 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
+
+  Category.associate = (models) => {
+    Category.hasMany(models.Product);
+  };
   return Category;
 };
